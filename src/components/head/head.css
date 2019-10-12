@@ -9,6 +9,9 @@
   }
 
 .danceHead {
+  top: 2em;
+  left: 19em;
+  position: fixed;
   transform: rotateZ(360deg);
   animation: danceHead 1s infinite;
   animation-direction: alternate;
@@ -16,9 +19,9 @@
  
 @keyframes danceHead {
     0% {
-     transform: rotateZ(180deg);
+     transform: rotateZ(360deg);
    }
    100% {
-     transform: rotateZ(-180deg);
+     transform: rotateZ(-360deg);
    }
  }

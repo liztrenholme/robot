@@ -8,3 +8,22 @@
     -webkit-transform: rotateZ(100deg);
     transform: rotateZ(100deg);
   }
+
+  .danceLeftArm {
+    top: 10em;
+    left: 10em;
+    position: fixed;
+    transform: rotateZ(10deg) scaleX(-1);
+    animation: danceLeftArm 1s infinite;
+    animation-direction: alternate;
+   }
+   
+  @keyframes danceLeftArm {
+      0% {
+       transform: rotateZ(10deg) scaleX(-1);
+     }
+     100% {
+       transform: rotateZ(-10deg) scaleX(-1);
+     }
+   }
+  

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import rightArmImg from '../../assets/arm.png'
 import './rightArm.css'
 
 class RightArm extends Component {
   render() {
+    const { dance } = this.props
     return (
-      <div className="rightArm">
+      <div className={dance ? 'rightArm, danceRightArm' : 'rightArm'}>
         <img src={rightArmImg} alt='rightArm' />
       </div>
     )
@@ -14,7 +15,7 @@ class RightArm extends Component {
 }
 
 RightArm.propTypes = {
-//   selectView: PropTypes.func,
+  dance: PropTypes.bool,
 //   active: PropTypes.string
 }
 

@@ -7,3 +7,21 @@
     -webkit-transform: rotateZ(300deg);
     transform: rotateZ(300deg);
   }
+
+  .danceRightLeg {
+    top: 22em;
+    left: 27em;
+    position: fixed;
+    transform: rotateZ(10deg);
+    animation: danceRightLeg .3s infinite;
+    animation-direction: alternate;
+   }
+   
+  @keyframes danceRightLeg {
+      0% {
+       transform: rotateZ(10deg) translateY(-2em);
+     }
+     100% {
+       transform: rotateZ(-10deg) translateY(.2em);
+     }
+   }
