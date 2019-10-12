@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   background-attachment: fixed;
-  background-image: url('assets/background.png');
   background-color: #a3bcd7;
   background-size: cover;
   height: 40em;
@@ -39,38 +38,37 @@
   }
 
   .walkForward {
-    transform: skew(20deg);
-    animation: walkForward .5s infinite;
-    animation-direction: alternate;
+    transform: scale(1, 1);
+    animation: walkForward 5s 1;
+    animation-direction: forwards;
   }
   
   @keyframes walkForward {
     0% {
-      transform: skewY(5deg);
+      transform: scale(1, 1);
     }
     100% {
-      transform: skewY(-5deg);
+      transform: scale(2, 2);
     }
   }
 
   .walkBackward {
-    transform: skew(20deg);
-    animation: walkBackward .5s infinite;
-    animation-direction: alternate;
+    transform: scale(1, 1);
+    animation: walkBackward 5s 1;
+    animation-direction: forwards;
   }
   
   @keyframes walkBackward {
     0% {
-      transform: skewY(5deg);
+      transform: scale(1, 1);
     }
     100% {
-      transform: skewY(-5deg);
+      transform: scale(.1, .1);
     }
   }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .App {
-    /* transform: scale(.7, .7) translate(-8em, 1em); */
     background-image: none;
   }
   .robot {
@@ -85,6 +83,32 @@
     }
     100% {
       transform: skewY(-5deg) scale(.8, .8) translate(-12em, 9em);
+    }
+  }
+
+  .walkForward {
+    transform: scale(2, 2) translate(-12em, 9em);
+  }
+  
+  @keyframes walkForward {
+    0% {
+      transform: scale(1, 1) translate(-12em, 9em);
+    }
+    100% {
+      transform: scale(2, 2) translate(-12em, 9em);
+    }
+  }
+
+  .walkBackward {
+    transform: scale(.1, .1) translate(-12em, 9em);
+  }
+  
+  @keyframes walkBackward {
+    0% {
+      transform: scale(1, 1) translate(-12em, 9em);
+    }
+    100% {
+      transform: scale(.1, .1) translate(-12em, 9em);
     }
   }
 }

@@ -11,3 +11,24 @@
     -webkit-transform: rotateZ(80deg);
     transform: rotateZ(80deg);
   }
+
+  .walkLeftLeg {
+    top: 22em;
+    left: 14em;
+    position: fixed;
+    transform: rotateZ(10deg) scaleX(-1);
+    animation: walkLeftLeg .3s infinite;
+    animation-direction: alternate;
+   }
+   
+  @keyframes walkLeftLeg {
+      0% {
+       transform: rotateZ(10deg) translateY(-2em) scaleX(-1);
+     }
+     50% {
+        transform: rotateZ(8deg) translateY(.2em) scaleX(-1);
+       }
+     100% {
+       transform: rotateZ(-10deg) translateY(.2em) scaleX(-1);
+     }
+   }

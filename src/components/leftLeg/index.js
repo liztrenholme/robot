@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import leftLegImg from '../../assets/leg.png'
 import './leftLeg.css'
 
 class LeftLeg extends Component {
   render() {
+    const { walkForward, walkBackward } = this.props
     return (
-      <div className="leftLeg">
+      <div className={walkForward || walkBackward ? 'leftLeg, walkLeftLeg' : 'leftLeg'}>
         <img className='legImg' src={leftLegImg} alt='leftleg' />
       </div>
     )
@@ -14,8 +15,8 @@ class LeftLeg extends Component {
 }
 
 LeftLeg.propTypes = {
-//   selectView: PropTypes.func,
-//   active: PropTypes.string
+  walkForward: PropTypes.bool,
+  walkBackward: PropTypes.bool
 }
 
 export default LeftLeg

@@ -25,3 +25,24 @@
        transform: rotateZ(-10deg) translateY(.2em);
      }
    }
+
+   .walkRightLeg {
+    top: 22em;
+    left: 27em;
+    position: fixed;
+    transform: rotateZ(10deg);
+    animation: walkRightLeg .3s infinite;
+    animation-direction: alternate;
+   }
+   
+  @keyframes walkRightLeg {
+      0% {
+       transform: rotateZ(-10deg) translateY(.2em);
+     }
+     50% {
+      transform: rotateZ(8deg) translateY(.2em);
+     }
+     100% {
+       transform: rotateZ(10deg) translateY(-2em);
+     }
+   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
 import Body from './body/index.js'
 import RightArm from './rightArm/index.js'
 import LeftArm from './leftArm/index.js'
@@ -37,11 +36,6 @@ class Main extends Component {
         </div>
       )
     }
-}
-
-Main.propTypes = {
-//   selectView: PropTypes.func,
-//   active: PropTypes.string
 }
 
 export default Main

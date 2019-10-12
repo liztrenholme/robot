@@ -5,9 +5,9 @@ import './rightLeg.css'
 
 class RightLeg extends Component {
   render() {
-    const { dance } = this.props
+    const { dance, walkForward, walkBackward } = this.props
     return (
-      <div className={dance ? 'rightLeg, danceRightLeg' : 'rightLeg'}>
+      <div className={dance ? 'rightLeg, danceRightLeg' : walkForward || walkBackward ? 'rightLeg, walkRightLeg' : 'rightLeg'}>
         <img className='legImg' src={rightLegImg} alt='rightleg' />
       </div>
     )
@@ -16,7 +16,8 @@ class RightLeg extends Component {
 
 RightLeg.propTypes = {
   dance: PropTypes.bool,
-//   active: PropTypes.string
+  walkForward: PropTypes.bool,
+  walkBackward: PropTypes.bool
 }
 
 export default RightLeg
