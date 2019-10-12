@@ -32,6 +32,24 @@
   border-radius: 5px;
   box-shadow: 2px 2px 2px #888888;
 }
+.btnOn {
+  cursor: pointer;
+  padding: .5em;
+  color: #000;
+  background-color: red;
+  margin: .5em auto;
+  width: fit-content;
+  border-radius: 25px;
+}
+.btnOff {
+  cursor: pointer;
+  padding: .5em;
+  color: #fff;
+  background-color: #000;
+  margin: .5em auto;
+  width: fit-content;
+  border-radius: 25px;
+}
 
 .dance {
     transform: skew(10deg);
