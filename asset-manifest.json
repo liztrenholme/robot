@@ -1,25 +1,34 @@
 {
   "files": {
-    "main.css": "/robot/static/css/main.bfdcd555.chunk.css",
-    "main.js": "/robot/static/js/main.37544bbb.chunk.js",
-    "main.js.map": "/robot/static/js/main.37544bbb.chunk.js.map",
+    "main.css": "/robot/static/css/main.79ddc078.chunk.css",
+    "main.js": "/robot/static/js/main.e78b1a1d.chunk.js",
+    "main.js.map": "/robot/static/js/main.e78b1a1d.chunk.js.map",
     "runtime-main.js": "/robot/static/js/runtime-main.e653ca2d.js",
     "runtime-main.js.map": "/robot/static/js/runtime-main.e653ca2d.js.map",
-    "static/js/2.31e57c17.chunk.js": "/robot/static/js/2.31e57c17.chunk.js",
-    "static/js/2.31e57c17.chunk.js.map": "/robot/static/js/2.31e57c17.chunk.js.map",
+    "static/js/2.4088447d.chunk.js": "/robot/static/js/2.4088447d.chunk.js",
+    "static/js/2.4088447d.chunk.js.map": "/robot/static/js/2.4088447d.chunk.js.map",
     "index.html": "/robot/index.html",
-    "precache-manifest.0c9f4c798f6080c8629d825fb6aab22b.js": "/robot/precache-manifest.0c9f4c798f6080c8629d825fb6aab22b.js",
+    "precache-manifest.462eb1ba6c93c413d968d057b0d8ff30.js": "/robot/precache-manifest.462eb1ba6c93c413d968d057b0d8ff30.js",
     "service-worker.js": "/robot/service-worker.js",
-    "static/css/main.bfdcd555.chunk.css.map": "/robot/static/css/main.bfdcd555.chunk.css.map",
+    "static/css/main.79ddc078.chunk.css.map": "/robot/static/css/main.79ddc078.chunk.css.map",
+    "static/media/275561__deleted-user-4798915__robot-transmission.flac": "/robot/static/media/275561__deleted-user-4798915__robot-transmission.2ea44ff4.flac",
+    "static/media/336879__shahruhaudio__robotic-transform-1.wav": "/robot/static/media/336879__shahruhaudio__robotic-transform-1.5cd58b71.wav",
+    "static/media/364334__mialena24__canto-robot-1.wav": "/robot/static/media/364334__mialena24__canto-robot-1.8a31e5fa.wav",
+    "static/media/397253__screamstudio__robot.wav": "/robot/static/media/397253__screamstudio__robot.f6df72ef.wav",
+    "static/media/447999__audionauten__robot-affirmation-balanced.wav": "/robot/static/media/447999__audionauten__robot-affirmation-balanced.e611d942.wav",
+    "static/media/55846__sergenious__robo.wav": "/robot/static/media/55846__sergenious__robo.1906ef65.wav",
     "static/media/arm.png": "/robot/static/media/arm.0c2bfaa2.png",
     "static/media/body.png": "/robot/static/media/body.aa4751ba.png",
+    "static/media/bodyOff.png": "/robot/static/media/bodyOff.d57c33e2.png",
     "static/media/head.png": "/robot/static/media/head.937d0fcd.png",
-    "static/media/leg.png": "/robot/static/media/leg.3a8a3d1b.png"
+    "static/media/headOff.png": "/robot/static/media/headOff.63e46ff8.png",
+    "static/media/leg.png": "/robot/static/media/leg.3a8a3d1b.png",
+    "static/media/legOff.png": "/robot/static/media/legOff.c6a78af8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e653ca2d.js",
-    "static/js/2.31e57c17.chunk.js",
-    "static/css/main.bfdcd555.chunk.css",
-    "static/js/main.37544bbb.chunk.js"
+    "static/js/2.4088447d.chunk.js",
+    "static/css/main.79ddc078.chunk.css",
+    "static/js/main.e78b1a1d.chunk.js"
   ]
 }
