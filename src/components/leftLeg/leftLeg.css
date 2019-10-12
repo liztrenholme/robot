@@ -1,0 +1,9 @@
+.leftLeg {
+    transform: scaleX(-1);
+    right: 55%;
+    position: fixed;
+    top: 22em;
+}
+.legImg {
+    width: 7em;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import leftArmImg from '../../assets/arm.png'
+import './leftArm.css'
 
 class LeftArm extends Component {
   render() {

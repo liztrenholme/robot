@@ -1,0 +1,7 @@
+.body {
+    height: 100%;
+    z-index: 5000000 !important;
+}
+img {
+    width: 10em;
+}

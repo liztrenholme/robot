@@ -1,0 +1,6 @@
+.leftArm {
+    transform: scaleX(-1);
+    top: 10em;
+    right: 58%;
+    position: fixed;
+}

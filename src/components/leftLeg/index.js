@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import leftLegImg from '../../assets/leg.png'
+import './leftLeg.css'
 
 class LeftLeg extends Component {
   render() {
     return (
       <div className="leftLeg">
-        <img src={leftLegImg} alt='leftleg' />
+        <img className='legImg' src={leftLegImg} alt='leftleg' />
       </div>
     )
   }
