@@ -2,7 +2,9 @@
   text-align: center;
   background-attachment: fixed;
   background-image: url('assets/background.png');
-  height: fit-content;
+  background-color: #a3bcd7;
+  background-size: cover;
+  height: 40em;
   padding: 2em;
 }
 
@@ -19,4 +21,70 @@
   margin: .5em auto;
   width: fit-content;
   border-radius: 5px;
+}
+
+.dance {
+    transform: skew(10deg);
+    animation: dance .5s infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes dance {
+    0% {
+      transform: skewY(5deg);
+    }
+    100% {
+      transform: skewY(-5deg);
+    }
+  }
+
+  .walkForward {
+    transform: skew(20deg);
+    animation: walkForward .5s infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes walkForward {
+    0% {
+      transform: skewY(5deg);
+    }
+    100% {
+      transform: skewY(-5deg);
+    }
+  }
+
+  .walkBackward {
+    transform: skew(20deg);
+    animation: walkBackward .5s infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes walkBackward {
+    0% {
+      transform: skewY(5deg);
+    }
+    100% {
+      transform: skewY(-5deg);
+    }
+  }
+
+@media only screen and (max-width: 500px) {
+  .App {
+    /* transform: scale(.7, .7) translate(-8em, 1em); */
+    background-image: none;
+  }
+  .robot {
+    transform: scale(.8, .8) translate(-12em, 9em);
+  }
+  .dance {
+    transform: skew(10deg) scale(.8, .8) translate(-12em, 9em);
+  }
+  @keyframes dance {
+    0% {
+      transform: skewY(5deg) scale(.8, .8) translate(-12em, 9em);
+    }
+    100% {
+      transform: skewY(-5deg) scale(.8, .8) translate(-12em, 9em);
+    }
+  }
 }

@@ -1,4 +1,24 @@
+.head {
+    top: 2em;
+    left: 19em;
+    position: fixed;
+}
 .head:hover {
     -webkit-transform: rotateZ(80deg); /* Safari prior 9.0 */
     transform: rotateZ(80deg); /* Standard syntax */
   }
+
+.danceHead {
+  transform: rotateZ(360deg);
+  animation: danceHead 1s infinite;
+  animation-direction: alternate;
+ }
+ 
+@keyframes danceHead {
+    0% {
+     transform: rotateZ(180deg);
+   }
+   100% {
+     transform: rotateZ(-180deg);
+   }
+ }

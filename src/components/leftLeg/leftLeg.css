@@ -1,6 +1,6 @@
 .leftLeg {
     transform: scaleX(-1);
-    right: 55%;
+    left: 14em;
     position: fixed;
     top: 22em;
 }

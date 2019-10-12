@@ -1,7 +1,7 @@
 .leftArm {
     transform: scaleX(-1);
     top: 10em;
-    right: 58%;
+    left: 10em;
     position: fixed;
 }
 .leftArm:hover {

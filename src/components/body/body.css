@@ -1,6 +1,9 @@
 .body {
     height: 100%;
     z-index: 5000000 !important;
+    top: 9.5em;
+    left: 19em;
+    position: fixed;
 }
 img {
     width: 10em;
