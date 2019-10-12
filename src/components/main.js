@@ -19,7 +19,6 @@ class Main extends Component {
     walkBackward = () => this.state.walkBackward ? this.setState({walkBackward: false}) : this.setState({walkBackward: true, walkForward: false, dance: false})
     render() {
       const { dance, walkBackward, walkForward } = this.state
-      console.log(dance)
       return (
         <div className="main">
           <div className={dance ? 'robot, dance' : walkForward ? 'robot, walkForward' : walkBackward ? 'robot, walkBackward' : 'robot'}>
