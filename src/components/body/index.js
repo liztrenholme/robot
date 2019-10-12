@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import bodyImg from '../../assets/body.png'
+import bodyOff from '../../assets/bodyOff.png'
 import './body.css'
 
 class Body extends Component {
   render() {
+    const { robotOn } = this.props
     return (
       <div className="body">
-        <img src={bodyImg} alt='body' />
+        <img src={robotOn ? bodyImg : bodyOff} alt='body' />
       </div>
     )
   }
 }
 
 Body.propTypes = {
-//   selectView: PropTypes.func,
-//   active: PropTypes.string
+  robotOn: PropTypes.bool,
 }
 
 export default Body

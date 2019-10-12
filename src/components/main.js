@@ -25,7 +25,7 @@ class Main extends Component {
       robotOn: true
     }
     handleOnOff = () => this.state.robotOn
-      ? this.setState({robotOn: false, currentSound: clashClang})
+      ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false})
       : this.setState({robotOn: true, currentSound: startupSound})
     dance = () => this.state.robotOn ? this.state.dance 
       ? this.setState({dance: false, currentSound: robotMumble}) 
@@ -58,6 +58,7 @@ class Main extends Component {
             <Sound
               url={currentSound}
               playStatus={Sound.status.PLAYING}
+              loop={currentSound === robotWalking || currentSound === robotSinging}
             //   playFromPosition={300 /* in milliseconds */}
             //   onLoading={this.handleSongLoading}
             //   onPlaying={this.handleSongPlaying}

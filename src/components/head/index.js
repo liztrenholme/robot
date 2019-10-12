@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import headImg from '../../assets/head.png'
+import headOffImg from '../../assets/headOff.png'
 import './head.css'
 
 class Head extends Component {
   render() {
-    const { dance } = this.props
+    const { dance, robotOn } = this.props
     return (
       <div className={dance ? 'head, danceHead' : 'head'}>
-        <img src={headImg} alt='head' />
+        <img src={robotOn ? headImg : headOffImg} alt='head' />
       </div>
     )
   }
@@ -16,7 +17,7 @@ class Head extends Component {
 
 Head.propTypes = {
   dance: PropTypes.bool,
-//   active: PropTypes.string
+  robotOn: PropTypes.bool
 }
 
 export default Head
