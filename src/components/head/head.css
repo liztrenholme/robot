@@ -1,0 +1,4 @@
+.head:hover {
+    -webkit-transform: rotateZ(80deg); /* Safari prior 9.0 */
+    transform: rotateZ(80deg); /* Standard syntax */
+  }

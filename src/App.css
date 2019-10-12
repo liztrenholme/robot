@@ -6,21 +6,17 @@
   padding: 2em;
 }
 
-.App-logo {
-  height: 40vmin;
+.buttons {
+  border: 1px solid #fff;
+  background-color: darkgrey;
+  width: 8em;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.btn {
+  cursor: pointer;
+  padding: .5em;
+  color: #fff;
+  background-color: rgb(122, 142, 233);
+  margin: .5em auto;
+  width: fit-content;
+  border-radius: 5px;
 }

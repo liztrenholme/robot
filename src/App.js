@@ -10,12 +10,19 @@ import Head from './components/head/index.js'
 function App() {
   return (
     <div className="App">
-      <Head />
-      <Body />
-      <RightArm />
-      <LeftArm />
-      <RightLeg />
-      <LeftLeg />
+      <div className='robot'>
+        <Head />
+        <Body />
+        <RightArm />
+        <LeftArm />
+        <RightLeg />
+        <LeftLeg />
+      </div>
+      <div className='buttons'>
+        <div className='btn'>Walk backward</div>
+        <div className='btn'>Walk forward</div>
+        <div className='btn'>Dance</div>
+      </div>
     </div>
   )
 }

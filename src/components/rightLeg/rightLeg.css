@@ -3,3 +3,7 @@
     position: fixed;
     top: 22em;
 }
+.rightLeg:hover {
+    -webkit-transform: rotateZ(300deg);
+    transform: rotateZ(300deg);
+  }

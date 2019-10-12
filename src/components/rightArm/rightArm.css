@@ -3,3 +3,7 @@
     left: 58%;
     position: fixed;
 }
+.rightArm:hover {
+    -webkit-transform: rotateZ(350deg);
+    transform: rotateZ(350deg);
+  }

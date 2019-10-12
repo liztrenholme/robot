@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import headImg from '../../assets/head.png'
+import './head.css'
 
 class Head extends Component {
   render() {

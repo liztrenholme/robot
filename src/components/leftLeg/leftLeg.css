@@ -7,3 +7,7 @@
 .legImg {
     width: 7em;
 }
+.leftLeg:hover {
+    -webkit-transform: rotateZ(80deg);
+    transform: rotateZ(80deg);
+  }
