@@ -29,9 +29,9 @@ class Main extends Component {
             <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} />
           </div>
           <div className='buttons'>
-            <div className='btn' onClick={this.walkBackward}>Walk backward</div>
-            <div className='btn' onClick={this.walkForward}>Walk forward</div>
-            <div className='btn' onClick={this.dance}>Dance</div>
+            <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
+            <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
+            <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
           </div>
         </div>
       )
