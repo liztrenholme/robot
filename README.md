@@ -1,4 +1,4 @@
-#React Robot!
+**React Robot!**
 
 Tap if on mobile, or hover if on desktop to make his arms, legs and head move, and tap the buttons to interact with him.
 
