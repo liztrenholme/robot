@@ -10,7 +10,7 @@ import Sound from 'react-sound'
 import robotSinging from '../assets/364334__mialena24__canto-robot-1.wav'
 import robotWalking from '../assets/55846__sergenious__robo.wav'
 import defaultSound from '../assets/447999__audionauten__robot-affirmation-balanced.wav'
-// import robotThinking from '../assets/390531__freedomfightervictor__calculating.wav'
+import robotThinking from '../assets/390531__freedomfightervictor__calculating.wav'
 import startupSound from '../assets/397253__screamstudio__robot.wav'
 import clashClang from '../assets/336879__shahruhaudio__robotic-transform-1.wav'
 import robotMumble from '../assets/275561__deleted-user-4798915__robot-transmission.flac'
@@ -36,37 +36,47 @@ class Main extends Component {
     walkBackward = () => this.state.robotOn ? this.state.walkBackward 
       ? this.setState({walkBackward: false, currentSound: defaultSound})
       : this.setState({walkBackward: true, walkForward: false, dance: false, currentSound: robotWalking}) : null
-    render() {
-      const { dance, walkBackward, walkForward, currentSound, robotOn } = this.state
-      return (
-        <div className="main">
-          <div className={dance ? 'robot, dance' : walkForward ? 'robot, walkForward' : walkBackward ? 'robot, walkBackward' : 'robot'}>
-            <Head dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-            <Body dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-            <RightArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-            <LeftArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-            <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-            <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+      handleCalculation = () => {
+        this.setState({currentSound: robotThinking})
+      }
+      render() {
+        const { dance, walkBackward, walkForward, currentSound, robotOn } = this.state
+        return (
+          <div className="main">
+            <div className={dance 
+              ? 'robot, dance' 
+              : walkForward 
+                ? 'robot, walkForward' 
+                : walkBackward 
+                  ? 'robot, walkBackward' 
+                  : 'robot'}
+            onClick={this.handleCalculation}>
+              <Head dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+              <Body dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+              <RightArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+              <LeftArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+              <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+              <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+            </div>
+            <div className='buttons'>
+              <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
+              <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
+              <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
+              <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
+            </div>
+            {currentSound ?
+              <Sound
+                url={currentSound}
+                playStatus={Sound.status.PLAYING}
+                loop={currentSound === robotWalking || currentSound === robotSinging}
+                //   playFromPosition={300 /* in milliseconds */}
+                //   onLoading={this.handleSongLoading}
+                //   onPlaying={this.handleSongPlaying}
+                //   onFinishedPlaying={this.handleSongFinishedPlaying}
+              /> : null}
           </div>
-          <div className='buttons'>
-            <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
-            <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
-            <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
-            <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
-          </div>
-          {currentSound ?
-            <Sound
-              url={currentSound}
-              playStatus={Sound.status.PLAYING}
-              loop={currentSound === robotWalking || currentSound === robotSinging}
-            //   playFromPosition={300 /* in milliseconds */}
-            //   onLoading={this.handleSongLoading}
-            //   onPlaying={this.handleSongPlaying}
-            //   onFinishedPlaying={this.handleSongFinishedPlaying}
-            /> : null}
-        </div>
-      )
-    }
+        )
+      }
 }
 
 export default Main
