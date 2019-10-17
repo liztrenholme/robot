@@ -27,16 +27,20 @@ class Main extends Component {
     handleOnOff = () => this.state.robotOn
       ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false})
       : this.setState({robotOn: true, currentSound: startupSound})
+
     dance = () => this.state.robotOn ? this.state.dance 
       ? this.setState({dance: false, currentSound: robotMumble}) 
       : this.setState({dance: true, walkBackward: false, walkForward: false, currentSound: robotSinging}) : null
+
     walkForward = () => this.state.robotOn ? this.state.walkForward 
       ? this.setState({walkForward: false, currentSound: defaultSound}) 
       : this.setState({walkForward: true, walkBackward: false, dance: false, currentSound: robotWalking}) : null
+
     walkBackward = () => this.state.robotOn ? this.state.walkBackward 
       ? this.setState({walkBackward: false, currentSound: defaultSound})
       : this.setState({walkBackward: true, walkForward: false, dance: false, currentSound: robotWalking}) : null
-      handleCalculation = () => {
+
+      handleCalculation = (a, b, c) => {
         this.setState({currentSound: robotThinking})
       }
       render() {
