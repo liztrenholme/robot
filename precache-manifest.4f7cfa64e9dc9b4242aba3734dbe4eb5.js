@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "73bcef6644c3d7da51b8076a729c348d",
+    "revision": "ddcff375bd88a28efc79b51a3ced19f3",
     "url": "/robot/index.html"
   },
   {
-    "revision": "f0d8157dbd356e1328c2",
-    "url": "/robot/static/css/main.79ddc078.chunk.css"
+    "revision": "de1fe6a089e16c5c5407",
+    "url": "/robot/static/css/main.b55ae608.chunk.css"
   },
   {
-    "revision": "c080e0808e37cbf43d39",
-    "url": "/robot/static/js/2.4088447d.chunk.js"
+    "revision": "9d357410f719efdd0b4f",
+    "url": "/robot/static/js/2.623cc9b1.chunk.js"
   },
   {
-    "revision": "f0d8157dbd356e1328c2",
-    "url": "/robot/static/js/main.e78b1a1d.chunk.js"
+    "revision": "de1fe6a089e16c5c5407",
+    "url": "/robot/static/js/main.d52eb387.chunk.js"
   },
   {
     "revision": "585b578b20bceaa7888a",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8a31e5fa44a9f39ae656c30fa2019f25",
     "url": "/robot/static/media/364334__mialena24__canto-robot-1.8a31e5fa.wav"
+  },
+  {
+    "revision": "744027eff9663af7cddfd9bcf9857689",
+    "url": "/robot/static/media/390531__freedomfightervictor__calculating.744027ef.wav"
   },
   {
     "revision": "f6df72efb5f69aa4fb2f3039d82f84cd",

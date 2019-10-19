@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/robot/static/css/main.79ddc078.chunk.css",
-    "main.js": "/robot/static/js/main.e78b1a1d.chunk.js",
-    "main.js.map": "/robot/static/js/main.e78b1a1d.chunk.js.map",
+    "main.css": "/robot/static/css/main.b55ae608.chunk.css",
+    "main.js": "/robot/static/js/main.d52eb387.chunk.js",
+    "main.js.map": "/robot/static/js/main.d52eb387.chunk.js.map",
     "runtime-main.js": "/robot/static/js/runtime-main.e653ca2d.js",
     "runtime-main.js.map": "/robot/static/js/runtime-main.e653ca2d.js.map",
-    "static/js/2.4088447d.chunk.js": "/robot/static/js/2.4088447d.chunk.js",
-    "static/js/2.4088447d.chunk.js.map": "/robot/static/js/2.4088447d.chunk.js.map",
+    "static/js/2.623cc9b1.chunk.js": "/robot/static/js/2.623cc9b1.chunk.js",
+    "static/js/2.623cc9b1.chunk.js.map": "/robot/static/js/2.623cc9b1.chunk.js.map",
     "index.html": "/robot/index.html",
-    "precache-manifest.eaa3b24c36b306478172613791d8979f.js": "/robot/precache-manifest.eaa3b24c36b306478172613791d8979f.js",
+    "precache-manifest.4f7cfa64e9dc9b4242aba3734dbe4eb5.js": "/robot/precache-manifest.4f7cfa64e9dc9b4242aba3734dbe4eb5.js",
     "service-worker.js": "/robot/service-worker.js",
-    "static/css/main.79ddc078.chunk.css.map": "/robot/static/css/main.79ddc078.chunk.css.map",
+    "static/css/main.b55ae608.chunk.css.map": "/robot/static/css/main.b55ae608.chunk.css.map",
     "static/media/275561__deleted-user-4798915__robot-transmission.flac": "/robot/static/media/275561__deleted-user-4798915__robot-transmission.2ea44ff4.flac",
     "static/media/336879__shahruhaudio__robotic-transform-1.wav": "/robot/static/media/336879__shahruhaudio__robotic-transform-1.5cd58b71.wav",
     "static/media/364334__mialena24__canto-robot-1.wav": "/robot/static/media/364334__mialena24__canto-robot-1.8a31e5fa.wav",
+    "static/media/390531__freedomfightervictor__calculating.wav": "/robot/static/media/390531__freedomfightervictor__calculating.744027ef.wav",
     "static/media/397253__screamstudio__robot.wav": "/robot/static/media/397253__screamstudio__robot.f6df72ef.wav",
     "static/media/447999__audionauten__robot-affirmation-balanced.wav": "/robot/static/media/447999__audionauten__robot-affirmation-balanced.e611d942.wav",
     "static/media/55846__sergenious__robo.wav": "/robot/static/media/55846__sergenious__robo.1906ef65.wav",
@@ -27,8 +28,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e653ca2d.js",
-    "static/js/2.4088447d.chunk.js",
-    "static/css/main.79ddc078.chunk.css",
-    "static/js/main.e78b1a1d.chunk.js"
+    "static/js/2.623cc9b1.chunk.js",
+    "static/css/main.b55ae608.chunk.css",
+    "static/js/main.d52eb387.chunk.js"
   ]
 }
