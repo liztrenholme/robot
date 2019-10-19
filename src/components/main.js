@@ -24,7 +24,8 @@ class Main extends Component {
       currentSound: robotMumble,
       robotOn: true,
       isLoadingJoke: false,
-      joke: ''
+      joke: '',
+      error: ''
     }
     handleOnOff = () => this.state.robotOn
       ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false})
@@ -52,7 +53,7 @@ class Main extends Component {
         try {
           jokeData = await axios.get('https://icanhazdadjoke.com/slack')
         } catch (error) {
-          console.log(error)
+          this.setState({error})
         }
         if (jokeData && jokeData.data) {
           this.setState({
@@ -61,6 +62,7 @@ class Main extends Component {
           })
         }
       }
+      closeJoke = () => this.setState({joke: ''})
       render() {
         const { dance, walkBackward, walkForward, currentSound, robotOn, joke } = this.state
         return (
@@ -80,14 +82,15 @@ class Main extends Component {
               <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
               <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
             </div>
-            <div className='textBox'>
-              {joke}
-            </div>
+            {joke.length ?
+              (<div className='textBox' onClick={this.closeJoke}>
+                {joke}
+              </div>) : null}
             <div className='buttons'>
               <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
               <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
               <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
-              <div className={dance ? 'btnActive' : 'btn'} onClick={this.getJoke}>Tell me a joke!</div>
+              <div className='btn' onClick={this.getJoke}>Tell me a joke!</div>
               <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
             </div>
             {currentSound ?
