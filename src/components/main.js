@@ -14,7 +14,8 @@ import robotThinking from '../assets/390531__freedomfightervictor__calculating.w
 import startupSound from '../assets/397253__screamstudio__robot.wav'
 import clashClang from '../assets/336879__shahruhaudio__robotic-transform-1.wav'
 import robotMumble from '../assets/275561__deleted-user-4798915__robot-transmission.flac'
-
+import { getJoke } from './modules/index.js'
+import axios from 'axios'
 
 class Main extends Component {
     state = {
@@ -22,7 +23,9 @@ class Main extends Component {
       walkForward: false,
       walkBackward: false,
       currentSound: robotMumble,
-      robotOn: true
+      robotOn: true,
+      isLoadingJoke: false,
+      joke: {}
     }
     handleOnOff = () => this.state.robotOn
       ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false})
@@ -43,8 +46,22 @@ class Main extends Component {
       handleCalculation = (a, b, c) => {
         this.setState({currentSound: robotThinking})
       }
+
+      getJoke = async () => {
+        this.setState({currentSound: robotThinking})
+        axios.get('https://icanhazdadjoke.com/slack')
+          .then(result => this.setState({
+            joke: result,
+            isLoadingJoke: false
+          }))
+          .catch(error => this.setState({
+            error,
+            isLoadingJoke: false
+          }))
+      }
       render() {
         const { dance, walkBackward, walkForward, currentSound, robotOn } = this.state
+        console.log(this.state.isLoadingJoke, this.state.joke)
         return (
           <div className="main">
             <div className={dance 
@@ -66,6 +83,7 @@ class Main extends Component {
               <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
               <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
               <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
+              <div className={dance ? 'btnActive' : 'btn'} onClick={this.getJoke}>Tell me a joke!</div>
               <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
             </div>
             {currentSound ?
