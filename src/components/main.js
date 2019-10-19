@@ -28,20 +28,20 @@ class Main extends Component {
       error: ''
     }
     handleOnOff = () => this.state.robotOn
-      ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false})
+      ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false, joke: ''})
       : this.setState({robotOn: true, currentSound: startupSound})
 
     dance = () => this.state.robotOn ? this.state.dance 
       ? this.setState({dance: false, currentSound: robotMumble}) 
-      : this.setState({dance: true, walkBackward: false, walkForward: false, currentSound: robotSinging}) : null
+      : this.setState({dance: true, walkBackward: false, walkForward: false, currentSound: robotSinging, joke: ''}) : null
 
     walkForward = () => this.state.robotOn ? this.state.walkForward 
       ? this.setState({walkForward: false, currentSound: defaultSound}) 
-      : this.setState({walkForward: true, walkBackward: false, dance: false, currentSound: robotWalking}) : null
+      : this.setState({walkForward: true, walkBackward: false, dance: false, currentSound: robotWalking, joke: ''}) : null
 
     walkBackward = () => this.state.robotOn ? this.state.walkBackward 
       ? this.setState({walkBackward: false, currentSound: defaultSound})
-      : this.setState({walkBackward: true, walkForward: false, dance: false, currentSound: robotWalking}) : null
+      : this.setState({walkBackward: true, walkForward: false, dance: false, currentSound: robotWalking, joke: ''}) : null
 
     //   handleCalculation = (a, b, c) => {
     //     this.setState({currentSound: robotThinking})
@@ -90,7 +90,7 @@ class Main extends Component {
               <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
               <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
               <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
-              <div className='btn' onClick={this.getJoke}>Tell me a joke!</div>
+              <div className='btn' onClick={robotOn ? this.getJoke : null}>Tell me a joke!</div>
               <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
             </div>
             {currentSound ?
@@ -98,7 +98,7 @@ class Main extends Component {
                 url={currentSound}
                 playStatus={Sound.status.PLAYING}
                 loop={currentSound === robotWalking || currentSound === robotSinging}
-                //   playFromPosition={300 /* in milliseconds */}
+                playFromPosition={currentSound === robotThinking ? 9700 : null /* in milliseconds */}
                 //   onLoading={this.handleSongLoading}
                 //   onPlaying={this.handleSongPlaying}
                 //   onFinishedPlaying={this.handleSongFinishedPlaying}
