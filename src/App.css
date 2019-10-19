@@ -51,6 +51,10 @@
   border-radius: 25px;
 }
 
+.textBox {
+  font-family: 'Shadows Into Light', cursive;
+}
+
 .dance {
     transform: skew(10deg);
     animation: dance .5s infinite;

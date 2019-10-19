@@ -14,7 +14,6 @@ import robotThinking from '../assets/390531__freedomfightervictor__calculating.w
 import startupSound from '../assets/397253__screamstudio__robot.wav'
 import clashClang from '../assets/336879__shahruhaudio__robotic-transform-1.wav'
 import robotMumble from '../assets/275561__deleted-user-4798915__robot-transmission.flac'
-import { getJoke } from './modules/index.js'
 import axios from 'axios'
 
 class Main extends Component {
@@ -25,7 +24,7 @@ class Main extends Component {
       currentSound: robotMumble,
       robotOn: true,
       isLoadingJoke: false,
-      joke: {}
+      joke: ''
     }
     handleOnOff = () => this.state.robotOn
       ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false})
@@ -43,25 +42,27 @@ class Main extends Component {
       ? this.setState({walkBackward: false, currentSound: defaultSound})
       : this.setState({walkBackward: true, walkForward: false, dance: false, currentSound: robotWalking}) : null
 
-      handleCalculation = (a, b, c) => {
-        this.setState({currentSound: robotThinking})
-      }
+    //   handleCalculation = (a, b, c) => {
+    //     this.setState({currentSound: robotThinking})
+    //   }
 
       getJoke = async () => {
-        this.setState({currentSound: robotThinking})
-        axios.get('https://icanhazdadjoke.com/slack')
-          .then(result => this.setState({
-            joke: result,
+        this.setState({currentSound: robotThinking, isLoadingJoke: true})
+        let jokeData = {}
+        try {
+          jokeData = await axios.get('https://icanhazdadjoke.com/slack')
+        } catch (error) {
+          console.log(error)
+        }
+        if (jokeData && jokeData.data) {
+          this.setState({
+            joke: jokeData.data.attachments[0].text,
             isLoadingJoke: false
-          }))
-          .catch(error => this.setState({
-            error,
-            isLoadingJoke: false
-          }))
+          })
+        }
       }
       render() {
-        const { dance, walkBackward, walkForward, currentSound, robotOn } = this.state
-        console.log(this.state.isLoadingJoke, this.state.joke)
+        const { dance, walkBackward, walkForward, currentSound, robotOn, joke } = this.state
         return (
           <div className="main">
             <div className={dance 
@@ -78,6 +79,9 @@ class Main extends Component {
               <LeftArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
               <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
               <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+            </div>
+            <div className='textBox'>
+              {joke}
             </div>
             <div className='buttons'>
               <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
