@@ -25,7 +25,8 @@ class Main extends Component {
       robotOn: true,
       isLoadingJoke: false,
       joke: '',
-      error: ''
+      error: '',
+      gifUrl: ''
     }
     handleOnOff = () => this.state.robotOn
       ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false, joke: ''})
@@ -62,9 +63,25 @@ class Main extends Component {
           })
         }
       }
+      getGiphy = async () => {
+        this.setState({currentSound: robotThinking, isLoadingJoke: true})
+        let giphyData = {}
+        try {
+          giphyData = await axios.get('https://api.giphy.com/v1/gifs/random?q=&api_key=b44ia2OVKIlqHGEUv72X9Erdu2wUcTzd&limit=1')
+        } catch (error) {
+          this.setState({error})
+        }
+        console.log('giphy!', giphyData)
+        if (giphyData && giphyData.data) {
+          this.setState({
+            gifUrl: giphyData.data.data.images.fixed_height.url,
+            isLoadingJoke: false
+          })
+        }
+      }
       closeJoke = () => this.setState({joke: ''})
       render() {
-        const { dance, walkBackward, walkForward, currentSound, robotOn, joke } = this.state
+        const { dance, walkBackward, walkForward, currentSound, robotOn, joke, gifUrl } = this.state
         return (
           <div className="main">
             <div className={dance 
@@ -91,6 +108,7 @@ class Main extends Component {
               <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
               <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
               <div className='btn' onClick={robotOn ? this.getJoke : null}>Tell me a joke!</div>
+              <div className='btn' onClick={robotOn ? this.getGiphy : null}>Show me a giphy!</div>
               <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
             </div>
             {currentSound ?
@@ -103,6 +121,9 @@ class Main extends Component {
                 //   onPlaying={this.handleSongPlaying}
                 //   onFinishedPlaying={this.handleSongFinishedPlaying}
               /> : null}
+            <div>
+              <img src={gifUrl} alt='gif' />
+            </div>
           </div>
         )
       }
