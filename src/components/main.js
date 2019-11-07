@@ -16,6 +16,8 @@ import clashClang from '../assets/336879__shahruhaudio__robotic-transform-1.wav'
 import robotMumble from '../assets/275561__deleted-user-4798915__robot-transmission.flac'
 import axios from 'axios'
 
+const defaultGif = 'https://media.giphy.com/media/Yqn9tE2E00k4U/giphy.gif'
+
 class Main extends Component {
     state = {
       dance: false,
@@ -26,10 +28,10 @@ class Main extends Component {
       isLoadingJoke: false,
       joke: '',
       error: '',
-      gifUrl: ''
+      gifUrl: defaultGif
     }
     handleOnOff = () => this.state.robotOn
-      ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false, joke: ''})
+      ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false, joke: '', gifUrl: defaultGif})
       : this.setState({robotOn: true, currentSound: startupSound})
 
     dance = () => this.state.robotOn ? this.state.dance 
@@ -71,7 +73,6 @@ class Main extends Component {
         } catch (error) {
           this.setState({error})
         }
-        console.log('giphy!', giphyData)
         if (giphyData && giphyData.data) {
           this.setState({
             gifUrl: giphyData.data.data.images.fixed_height.url,
@@ -108,8 +109,11 @@ class Main extends Component {
               <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
               <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
               <div className='btn' onClick={robotOn ? this.getJoke : null}>Tell me a joke!</div>
-              <div className='btn' onClick={robotOn ? this.getGiphy : null}>Show me a giphy!</div>
+              <div className='btn' onClick={robotOn ? this.getGiphy : null}>Change the channel!</div>
               <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
+            </div>
+            <div>
+              <img src={gifUrl} alt='gif' height='150px' />
             </div>
             {currentSound ?
               <Sound
@@ -121,9 +125,6 @@ class Main extends Component {
                 //   onPlaying={this.handleSongPlaying}
                 //   onFinishedPlaying={this.handleSongFinishedPlaying}
               /> : null}
-            <div>
-              <img src={gifUrl} alt='gif' />
-            </div>
           </div>
         )
       }
