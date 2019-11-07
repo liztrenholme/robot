@@ -17,6 +17,7 @@ import robotMumble from '../assets/275561__deleted-user-4798915__robot-transmiss
 import axios from 'axios'
 
 const defaultGif = 'https://media.giphy.com/media/Yqn9tE2E00k4U/giphy.gif'
+// https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif
 
 class Main extends Component {
     state = {
@@ -28,7 +29,7 @@ class Main extends Component {
       isLoadingJoke: false,
       joke: '',
       error: '',
-      gifUrl: defaultGif
+      gifUrl: 'https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif'
     }
     handleOnOff = () => this.state.robotOn
       ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false, joke: '', gifUrl: defaultGif})
