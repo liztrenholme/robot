@@ -31,9 +31,9 @@ class Main extends Component {
       error: '',
       gifUrl: 'https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif'
     }
-    handleOnOff = () => this.state.robotOn
-      ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false, joke: '', gifUrl: defaultGif})
-      : this.setState({robotOn: true, currentSound: startupSound})
+  handleOnOff = () => this.state.robotOn
+    ? this.setState({robotOn: false, currentSound: clashClang, dance: false, walkBackward: false, walkForward: false, joke: '', gifUrl: defaultGif})
+    : this.setState({robotOn: true, currentSound: startupSound})
 
     dance = () => this.state.robotOn ? this.state.dance 
       ? this.setState({dance: false, currentSound: robotMumble}) 
@@ -51,84 +51,84 @@ class Main extends Component {
     //     this.setState({currentSound: robotThinking})
     //   }
 
-      getJoke = async () => {
-        this.setState({currentSound: robotThinking, isLoadingJoke: true})
-        let jokeData = {}
-        try {
-          jokeData = await axios.get('https://icanhazdadjoke.com/slack')
-        } catch (error) {
-          this.setState({error})
-        }
-        if (jokeData && jokeData.data) {
-          this.setState({
-            joke: jokeData.data.attachments[0].text,
-            isLoadingJoke: false
-          })
-        }
-      }
-      getGiphy = async () => {
-        this.setState({currentSound: robotThinking, isLoadingJoke: true})
-        let giphyData = {}
-        try {
-          giphyData = await axios.get('https://api.giphy.com/v1/gifs/random?q=&api_key=b44ia2OVKIlqHGEUv72X9Erdu2wUcTzd&limit=1')
-        } catch (error) {
-          this.setState({error})
-        }
-        if (giphyData && giphyData.data) {
-          this.setState({
-            gifUrl: giphyData.data.data.images.fixed_height.url,
-            isLoadingJoke: false
-          })
-        }
-      }
-      closeJoke = () => this.setState({joke: ''})
-      render() {
-        const { dance, walkBackward, walkForward, currentSound, robotOn, joke, gifUrl } = this.state
-        return (
-          <div className="main">
-            <div className={dance 
-              ? 'robot, dance' 
-              : walkForward 
-                ? 'robot, walkForward' 
-                : walkBackward 
-                  ? 'robot, walkBackward' 
-                  : 'robot'}
-            onClick={this.handleCalculation}>
-              <Head dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-              <Body dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-              <RightArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-              <LeftArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-              <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-              <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-            </div>
-            {joke.length ?
-              (<div className='textBox' onClick={this.closeJoke}>
-                {joke}
-              </div>) : null}
-            <div className='buttons'>
-              <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
-              <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
-              <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
-              <div className='btn' onClick={robotOn ? this.getJoke : null}>Tell me a joke!</div>
-              <div className='btn' onClick={robotOn ? this.getGiphy : null}>Change the channel!</div>
-              <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
-            </div>
-            <div>
-              <img src={gifUrl} alt='gif' height='150px' />
-            </div>
-            {currentSound ?
-              <Sound
-                url={currentSound}
-                playStatus={Sound.status.PLAYING}
-                loop={currentSound === robotWalking || currentSound === robotSinging}
-                playFromPosition={currentSound === robotThinking ? 9700 : null /* in milliseconds */}
-                //   onLoading={this.handleSongLoading}
-                //   onPlaying={this.handleSongPlaying}
-                //   onFinishedPlaying={this.handleSongFinishedPlaying}
-              /> : null}
-          </div>
-        )
-      }
+  getJoke = async () => {
+    this.setState({currentSound: robotThinking, isLoadingJoke: true})
+    let jokeData = {}
+    try {
+      jokeData = await axios.get('https://icanhazdadjoke.com/slack')
+    } catch (error) {
+      this.setState({error})
+    }
+    if (jokeData && jokeData.data) {
+      this.setState({
+        joke: jokeData.data.attachments[0].text,
+        isLoadingJoke: false
+      })
+    }
+  }
+  getGiphy = async () => {
+    this.setState({currentSound: robotThinking, isLoadingJoke: true})
+    let giphyData = {}
+    try {
+      giphyData = await axios.get('https://api.giphy.com/v1/gifs/random?q=&api_key=b44ia2OVKIlqHGEUv72X9Erdu2wUcTzd&limit=1')
+    } catch (error) {
+      this.setState({error})
+    }
+    if (giphyData && giphyData.data) {
+      this.setState({
+        gifUrl: giphyData.data.data.images.fixed_height.url,
+        isLoadingJoke: false
+      })
+    }
+  }
+  closeJoke = () => this.setState({joke: ''})
+  render() {
+    const { dance, walkBackward, walkForward, currentSound, robotOn, joke, gifUrl } = this.state
+    return (
+      <div className="main">
+        <div className={dance 
+          ? 'robot, dance' 
+          : walkForward 
+            ? 'robot, walkForward' 
+            : walkBackward 
+              ? 'robot, walkBackward' 
+              : 'robot'}
+        onClick={this.handleCalculation}>
+          <Head dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+          <Body dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+          <RightArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+          <LeftArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+          <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+          <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+        </div>
+        {joke.length ?
+          (<div className='textBox' onClick={this.closeJoke}>
+            {joke}
+          </div>) : null}
+        <div className='buttons'>
+          <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
+          <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
+          <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
+          <div className='btn' onClick={robotOn ? this.getJoke : null}>Tell me a joke!</div>
+          <div className='btn' onClick={robotOn ? this.getGiphy : null}>Change the channel!</div>
+          <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
+        </div>
+        <div>
+          <img src={gifUrl} alt='gif' height='150px' />
+        </div>
+        {currentSound ?
+          <Sound
+            url={currentSound}
+            playStatus={Sound.status.PLAYING}
+            loop={currentSound === robotWalking || currentSound === robotSinging}
+            playFromPosition={currentSound === robotThinking ? 9700 : null /* in milliseconds */}
+            //   onLoading={this.handleSongLoading}
+            //   onPlaying={this.handleSongPlaying}
+            //   onFinishedPlaying={this.handleSongFinishedPlaying}
+          /> : null}
+      </div>
+    )
+  }
 }
 
 export default Main
