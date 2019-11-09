@@ -10,7 +10,7 @@
 .buttons {
   border: 1px solid #fff;
   background-color: darkgrey;
-  width: 8em;
+  width: 9em;
 }
 .btn {
   cursor: pointer;
@@ -21,6 +21,16 @@
   width: fit-content;
   border-radius: 5px;
   box-shadow: 4px 4px #888888;
+}
+.btn:hover {
+  cursor: pointer;
+  padding: .5em;
+  color: #fff;
+  background-color: rgb(122, 142, 233);
+  margin: .5em auto;
+  width: fit-content;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #888888;
 }
 .btnActive {
   cursor: pointer;
@@ -59,7 +69,7 @@
   height: fit-content;
   position: fixed;
   right: 1em;
-  top: 5em;
+  top: 2em;
   border-radius: 35px;
   padding: .5em;
 }
@@ -73,7 +83,7 @@
 }
 .tvInner {
   position: absolute;
-  margin: 1.1em 1em;
+  margin: .7em .8em;
 }
 
 .dance {
@@ -137,6 +147,7 @@
   }
   .tvBox {
     width: 5em;
+    /* margin-top: -20em; */
   }
 }
 
@@ -144,18 +155,22 @@
   .App {
     background-image: none;
   }
+  .tvBox {
+    width: 20em;
+    margin-top: -19em;
+  }
   .robot {
-    transform: scale(.8, .8) translate(-12em, 9em);
+    transform: scale(.8, .8) translate(-10em, 15em);
   }
   .dance {
-    transform: skew(10deg) scale(.8, .8) translate(-12em, 9em);
+    transform: skew(10deg) scale(.8, .8) translate(-10em, 15em);
   }
   @keyframes dance {
     0% {
-      transform: skewY(5deg) scale(.8, .8) translate(-12em, 9em);
+      transform: skewY(5deg) scale(.8, .8) translate(-10em, 15em);
     }
     100% {
-      transform: skewY(-5deg) scale(.8, .8) translate(-12em, 9em);
+      transform: skewY(-5deg) scale(.8, .8) translate(-10em, 15em);
     }
   }
 

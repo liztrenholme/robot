@@ -18,7 +18,7 @@ import tv from '../assets/tv2.png'
 import axios from 'axios'
 
 const defaultGif = 'https://media.giphy.com/media/Yqn9tE2E00k4U/giphy.gif'
-// https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif
+const colorsGif = 'https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif'
 
 class Main extends Component {
     state = {
@@ -30,7 +30,7 @@ class Main extends Component {
       isLoadingJoke: false,
       joke: '',
       error: '',
-      gifUrl: 'https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif'
+      gifUrl: colorsGif
     }
   handleOnOff = () => this.state.robotOn
     ? this.setState({
@@ -42,7 +42,7 @@ class Main extends Component {
       joke: '', 
       gifUrl: defaultGif
     })
-    : this.setState({robotOn: true, currentSound: startupSound})
+    : this.setState({robotOn: true, currentSound: startupSound, gifUrl: colorsGif})
 
     dance = () => this.state.robotOn ? this.state.dance 
       ? this.setState({dance: false, currentSound: robotMumble}) 
@@ -125,7 +125,7 @@ class Main extends Component {
           <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
         </div>
         <div className='tvBox'>
-          <img className='tvOuter' src={tv} alt='tv' height='180px' width='400px' />
+          <img className='tvOuter' src={tv} alt='tv' height='170px' width='400px' />
           <img className='tvInner' src={gifUrl} alt='gif' height='150px' />
         </div>
         {currentSound ?
