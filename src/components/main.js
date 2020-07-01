@@ -16,7 +16,6 @@ import clashClang from '../assets/336879__shahruhaudio__robotic-transform-1.wav'
 import robotMumble from '../assets/275561__deleted-user-4798915__robot-transmission.flac'
 import tv from '../assets/tv2.png'
 import axios from 'axios'
-import {getWeather} from './modules/index.js'
 
 const defaultGif = 'https://media.giphy.com/media/Yqn9tE2E00k4U/giphy.gif'
 const colorsGif = 'https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif'
@@ -31,12 +30,11 @@ class Main extends Component {
       isLoadingJoke: false,
       joke: '',
       error: '',
-      gifUrl: colorsGif
+      gifUrl: colorsGif,
+      muted: false
     }
-    async componentDidMount() {
-      const hi = await getWeather()
-      console.log('weather', hi)
-    }
+    // async componentDidMount() {
+    // }
   handleOnOff = () => this.state.robotOn
     ? this.setState({
       robotOn: false, 
@@ -96,6 +94,7 @@ class Main extends Component {
       })
     }
   }
+  handleMute = () => this.state.muted ? this.setState({muted: false}) : this.setState({muted: true})
   getWeather = async () => {
     let weather = {}
     try {
@@ -114,23 +113,25 @@ class Main extends Component {
   closeJoke = () => this.setState({joke: ''})
   render() {
     const { dance, walkBackward, walkForward, currentSound, 
-      robotOn, joke, gifUrl } = this.state
+      robotOn, joke, gifUrl, muted } = this.state
     return (
       <div className="main">
-        <div className={dance 
-          ? 'robot, dance' 
-          : walkForward 
-            ? 'robot, walkForward' 
-            : walkBackward 
-              ? 'robot, walkBackward' 
-              : 'robot'}
-        onClick={this.handleCalculation}>
-          <Head dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-          <Body dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-          <RightArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-          <LeftArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-          <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
-          <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+        <div className="robot-div">
+          <div className={dance 
+            ? 'robot, dance' 
+            : walkForward 
+              ? 'robot, walkForward' 
+              : walkBackward 
+                ? 'robot, walkBackward' 
+                : 'robot'}
+          onClick={this.handleCalculation}>
+            <Head dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+            <Body dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+            <RightArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+            <LeftArm dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+            <RightLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+            <LeftLeg dance={dance} walkForward={walkForward} walkBackward={walkBackward} robotOn={robotOn} />
+          </div>
         </div>
         {joke.length ?
           (<div className='textBox' onClick={this.closeJoke}>
@@ -142,13 +143,14 @@ class Main extends Component {
           <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
           <div className='btn' onClick={robotOn ? this.getJoke : null}>Tell me a joke!</div>
           <div className='btn' onClick={robotOn ? this.getGiphy : null}>Change the channel!</div>
+          <div className={muted ? 'btnActive' : 'btn'} onClick={this.handleMute}>Mute</div>
           <div className={robotOn ? 'btnOn' : 'btnOff'} onClick={this.handleOnOff}>Power</div>
         </div>
         <div className='tvBox'>
           <img className='tvOuter' src={tv} alt='tv' height='170px' width='400px' />
           <img className='tvInner' src={gifUrl} alt='gif' height='150px' />
         </div>
-        {currentSound ?
+        {currentSound && !muted ?
           <Sound
             url={currentSound}
             playStatus={Sound.status.PLAYING}
