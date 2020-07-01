@@ -1,10 +1,26 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #a3bcd7;
+}
+
 .App {
   text-align: center;
   background-attachment: fixed;
   background-color: #a3bcd7;
   background-size: cover;
-  height: 40em;
+  height: 100%;
   padding: 2em;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.robot-div {
+  bottom: 1em;
+  position: absolute;
 }
 
 .buttons {
@@ -12,6 +28,7 @@
   background-color: darkgrey;
   width: 9em;
 }
+
 .btn {
   cursor: pointer;
   padding: .5em;
@@ -22,6 +39,7 @@
   border-radius: 5px;
   box-shadow: 4px 4px #888888;
 }
+
 .btn:hover {
   cursor: pointer;
   padding: .5em;
@@ -32,6 +50,7 @@
   border-radius: 5px;
   box-shadow: 2px 2px 2px #888888;
 }
+
 .btnActive {
   cursor: pointer;
   padding: .5em;
@@ -42,6 +61,7 @@
   border-radius: 5px;
   box-shadow: 2px 2px 2px #888888;
 }
+
 .btnOn {
   cursor: pointer;
   padding: .5em;
@@ -51,6 +71,7 @@
   width: fit-content;
   border-radius: 25px;
 }
+
 .btnOff {
   cursor: pointer;
   padding: .5em;
@@ -77,59 +98,61 @@
 .tvBox {
   width: 80em;
 }
+
 .tvOuter {
   position: absolute;
   width: 14em;
 }
+
 .tvInner {
   position: absolute;
   margin: .7em .8em;
 }
 
 .dance {
-    transform: skew(10deg);
-    animation: dance .5s infinite;
-    animation-direction: alternate;
-  }
-  
-  @keyframes dance {
-    0% {
-      transform: skewY(5deg);
-    }
-    100% {
-      transform: skewY(-5deg);
-    }
-  }
+  transform: skew(10deg);
+  animation: dance .5s infinite;
+  animation-direction: alternate;
+}
 
-  .walkForward {
-    transform: scale(1, 1);
-    animation: walkForward 5s 1;
-    animation-direction: forwards;
+@keyframes dance {
+  0% {
+    transform: skewY(5deg);
   }
-  
-  @keyframes walkForward {
-    0% {
-      transform: scale(1, 1);
-    }
-    100% {
-      transform: scale(2, 2);
-    }
+  100% {
+    transform: skewY(-5deg);
   }
+}
 
-  .walkBackward {
+.walkForward {
+  transform: scale(1, 1);
+  animation: walkForward 5s 1;
+  animation-direction: forwards;
+}
+
+@keyframes walkForward {
+  0% {
     transform: scale(1, 1);
-    animation: walkBackward 5s 1;
-    animation-direction: forwards;
   }
-  
-  @keyframes walkBackward {
-    0% {
-      transform: scale(1, 1);
-    }
-    100% {
-      transform: scale(.1, .1);
-    }
+  100% {
+    transform: scale(2, 2);
   }
+}
+
+.walkBackward {
+  transform: scale(1, 1);
+  animation: walkBackward 5s 1;
+  animation-direction: forwards;
+}
+
+@keyframes walkBackward {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(.1, .1);
+  }
+}
 
 @media only screen and (max-width: 870px) {
   .textBox {
@@ -173,11 +196,9 @@
       transform: skewY(-5deg) scale(.8, .8) translate(-10em, 15em);
     }
   }
-
   .walkForward {
     transform: scale(2, 2) translate(-12em, 9em);
   }
-  
   @keyframes walkForward {
     0% {
       transform: scale(1, 1) translate(-12em, 9em);
@@ -186,11 +207,9 @@
       transform: scale(2, 2) translate(-12em, 9em);
     }
   }
-
   .walkBackward {
     transform: scale(.1, .1) translate(-12em, 9em);
   }
-  
   @keyframes walkBackward {
     0% {
       transform: scale(1, 1) translate(-12em, 9em);
