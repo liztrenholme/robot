@@ -95,21 +95,6 @@ class Main extends Component {
     }
   }
   handleMute = () => this.state.muted ? this.setState({muted: false}) : this.setState({muted: true})
-  getWeather = async () => {
-    let weather = {}
-    try {
-      weather = await axios.post('https://accuweatherstefan-skliarovv1.p.rapidapi.com/get24HoursConditionsByLocationKey')
-    } catch (error) {
-      this.setState({error})
-    }
-    if (weather && weather.data) {
-      this.setState({
-        gifUrl: weather.data.data.images.fixed_height.url,
-        isLoadingJoke: false,
-        joke: ''
-      })
-    }
-  }
   closeJoke = () => this.setState({joke: ''})
   render() {
     const { dance, walkBackward, walkForward, currentSound, 
