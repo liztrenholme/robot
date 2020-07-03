@@ -24,7 +24,6 @@ import 'whatwg-fetch'
 
 export const getWeather = async (location) => {
   const url = 'https://accuweatherstefan-skliarovv1.p.rapidapi.com/searchPostalCode'
-  console.log(location)
   let data = {}
   try {
     data = await fetch(url, {
