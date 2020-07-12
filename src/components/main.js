@@ -33,8 +33,6 @@ class Main extends Component {
       gifUrl: colorsGif,
       muted: false
     }
-    // async componentDidMount() {
-    // }
   handleOnOff = () => this.state.robotOn
     ? this.setState({
       robotOn: false, 
