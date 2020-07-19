@@ -121,9 +121,9 @@ class Main extends Component {
             {joke}
           </div>) : null}
         <div className='buttons'>
-          <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div>
-          <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div>
-          <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div>
+          {/* <div className={walkBackward ? 'btnActive' : 'btn'} onClick={this.walkBackward}>Walk backward</div> */}
+          {/* <div className={walkForward ? 'btnActive' : 'btn'} onClick={this.walkForward}>Walk forward</div> */}
+          {/* <div className={dance ? 'btnActive' : 'btn'} onClick={this.dance}>Dance</div> */}
           <div className='btn' onClick={robotOn ? this.getJoke : null}>Tell me a joke!</div>
           <div className='btn' onClick={robotOn ? this.getGiphy : null}>Change the channel!</div>
           <div className={muted ? 'btnActive' : 'btn'} onClick={this.handleMute}>Mute</div>
