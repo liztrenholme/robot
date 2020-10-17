@@ -1,0 +1,13 @@
+.clock-container {
+    background-color: #000;
+    color: #0f0;
+    margin-top: 15em;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 1em;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2em;
+    border-radius: 15px;
+    border: 15px darkblue solid;
+}

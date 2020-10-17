@@ -16,6 +16,7 @@ import clashClang from '../assets/336879__shahruhaudio__robotic-transform-1.wav'
 import robotMumble from '../assets/275561__deleted-user-4798915__robot-transmission.flac'
 import tv from '../assets/tv2.png'
 import axios from 'axios'
+import Clock from '../components/clock'
 
 const defaultGif = 'https://media.giphy.com/media/Yqn9tE2E00k4U/giphy.gif'
 const colorsGif = 'https://media.giphy.com/media/Ph0oIVQeuvh0k/giphy.gif'
@@ -143,6 +144,7 @@ class Main extends Component {
             //   onPlaying={this.handleSongPlaying}
             //   onFinishedPlaying={this.handleSongFinishedPlaying}
           /> : null}
+        <Clock />
       </div>
     )
   }
