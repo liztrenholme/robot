@@ -1,7 +1,9 @@
+.outer-container {
+    margin-top: 15em;
+}
 .clock-container {
     background-color: #000;
     color: #0f0;
-    margin-top: 15em;
     width: fit-content;
     margin-right: auto;
     margin-left: auto;
@@ -10,4 +12,16 @@
     font-size: 2em;
     border-radius: 15px;
     border: 15px darkblue solid;
+    box-shadow: 2px 2px 10px #222;
+}
+.button {
+    background-color: darkblue;
+    color: #f3f3ff;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    padding: .5em;
+    margin-top: .5em;
+    box-shadow: 2px 2px 10px #222;
+    border-radius: 5px;
 }
